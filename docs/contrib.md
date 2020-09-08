@@ -20,12 +20,20 @@ Basic flow of working on the contents
 1. New (pre-merge) PR submitted by somebody (eg. "pull/27")
 1. Let's say you are in the `power-automation-extra` directory where `origin` points to your repo
 1. `git remote add upstream https://github.com/ocp-power-automation/extra.git` (if you have not done this already)
-1. `git fetch upstream pull/27/head:review` - this creates a remote branch called "review" in your repo with the PR
-1. `git checkout review` - this downloads the source tree with the PR
+1. `git fetch upstream pull/27/head:review27` - this creates a remote branch called "review27" in your repo with the PR
+1. `git checkout review27` - this downloads the source tree with the PR
 1. `mkdocs serve`
 1. point your browser to <http://localhost:8000>
 
 ## Command References
 
 * [git](https://git-scm.com/docs)
+    * [git-add](https://git-scm.com/docs/git-add)
+    * [git-checkout](https://git-scm.com/docs/git-checkout)
+    * [git-clone](https://git-scm.com/docs/git-clone)
+    * [git-commit](https://git-scm.com/docs/git-commit)
+    * [git-fetch](https://git-scm.com/docs/git-fetch)
+    * [git-push](https://git-scm.com/docs/git-push)
+    * [git-remote](https://git-scm.com/docs/git-remote)
 * [mkdocs](https://www.mkdocs.org)
+* [pip](https://pip.pypa.io/en/stable/user_guide/)

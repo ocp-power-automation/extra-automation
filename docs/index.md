@@ -7,8 +7,9 @@
 
 ## KnowledgeBase
 
-* [How to troubleshoot Pending Pods](h2t-pending-pods)
-* [How to troubleshoot Resource Exhaustion situation](h2t-resource-exhaustion)
-* [How to troubleshoot Security Context (SCC) issues](h2t-scc)
+* How to troubleshoot...
+    * [Pending Pods](h2t-pending-pods)
+    * [Resource Exhaustion situation](h2t-resource-exhaustion)
+    * [Security Context (SCC) issues](h2t-scc)
 * [External pages that helped resolve issues that we actually faced](actually-helped)
 * and more to come!
