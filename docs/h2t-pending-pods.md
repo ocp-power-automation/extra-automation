@@ -43,7 +43,7 @@ name: master-0.202-8880.example.com
       memory: 16715584Ki
 ```
 
-`oc get nodes -o json | jq '.items[] | {name: .metadata.name, cap: .status.capacity'}`
+`oc get nodes -o json | jq '.items[] | {name: .metadata.name, cap: .status.capacity}'`
 
 ```
 {
