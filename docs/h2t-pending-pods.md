@@ -33,7 +33,7 @@ Viewing the CPU and memory usage statistics on the nodes could help in better al
 Note: <cluster-reader> permission is required to view the usage statistics
 Here are some example command lines that extract just the necessary information.    
 
-` oc get nodes -o yaml | egrep '\sname:|cpu:|memory:' `
+`oc get nodes -o yaml | egrep '\sname:|cpu:|memory:'`
 
 ```
 name: master-0.202-8880.example.com
@@ -43,7 +43,7 @@ name: master-0.202-8880.example.com
       memory: 16715584Ki
 ```
 
-` oc get nodes -o json | jq '.items[] | {name: .metadata.name, cap: .status.capacity' `
+`oc get nodes -o json | jq '.items[] | {name: .metadata.name, cap: .status.capacity'}`
 
 ```
 {
