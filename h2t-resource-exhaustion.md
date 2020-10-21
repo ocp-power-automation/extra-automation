@@ -5,7 +5,8 @@ You might notice there are a lots of "Evicted" and/or "Pending" pods, or high re
 This document explains how to verify, diagnose, and offer what could be done about this "resource exhaustion" 
 situation on an OpenShift cluster.
 ## How to verify this situation
-Resource exhaustion is the condition that happens when the resources required to execute an action are entirely or nearly expended, preventing that action from occurring.The most common outcome of resource exhaustion is denial of service.
+Resource exhaustion is the condition that happens when the resources required to execute an action are entirely or nearly expended, preventing that action from occurring.
+The most common outcome of resource exhaustion is denial of service.
 `oc adm top nodes` is one way to see how tight CPU and Memory resources are for the cluster nodes.
 #### Example output below :
 You will get to know about resource exhaustion condition using this command
@@ -144,7 +145,8 @@ To know more about configuring default memory requests and limits for a namespac
 
 #### At node level
 One can also specify how much resource Kubernetes can use and how much OS/system keeps for its 
-stability. This helps avoid overcommitment and flapping. 
+stability. 
+This helps avoid overcommitment and flapping. 
 You can control how much of a node resource is made available for scheduling in order to allow the scheduler to fully allocate a node and to prevent evictions
 This page describes how this all works in OpenShift clusters in more details:<br/> 
 <https://docs.openshift.com/container-platform/4.5/nodes/nodes/nodes-nodes-resources-configuring.html> <br/>
