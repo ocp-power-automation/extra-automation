@@ -12,6 +12,7 @@
     * [Resource Exhaustion situation](h2t-resource-exhaustion)
     * [Security Context (SCC) issues](h2t-scc)
 * [How to manage Node health](Node_Health_Management)
+* [Prometheus Queries for monitoring of oc cluster](Prometheus_Queries)
 * [External pages that helped resolve issues that we actually faced](actually-helped)
 * [FAQ on PowerVS deployments](powervs-faq)
 * and more to come!
