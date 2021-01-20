@@ -1,5 +1,10 @@
 Collection of issues we faced and external pages/links that actually helped resolve them;
 
+## 2021-01
+
+* OCS (OpenShift Container Storage) 4.6 install worked like a champ following this document.
+  => <https://access.redhat.com/documentation/en-us/red_hat_openshift_container_storage/4.6/html-single/monitoring_openshift_container_storage/index>
+
 ##### (2020-10-26 4.6 GA)
 
 ## 2020-10
