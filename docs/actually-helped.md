@@ -2,6 +2,11 @@ Collection of issues we faced and external pages/links that actually helped reso
 
 ## 2021-01
 
+* 4.6 node reporting `NotReady` after upgrade to 4.6.12, due to CRI-O failing to start up on one worker node (other nodes were fine).
+  The error seen in `journalctl` on the troubling node was like `Jan 21 16:00:48 worker1.ocp4.example.com bash[1881]: Error: readlink /var/lib/containers/storage/overlay/l/6MDZKPV63T>`  
+  Running `# systemctl daemon-reload` was necessary before the storage wipe steps in the below doc.  
+  => <https://access.redhat.com/solutions/5350721> (again, see [2020-10](#2020-10))
+
 * OCS (OpenShift Container Storage) 4.6 install worked like a champ following this document.
   => <https://access.redhat.com/documentation/en-us/red_hat_openshift_container_storage/4.6/html-single/monitoring_openshift_container_storage/index>
 
