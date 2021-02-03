@@ -1,5 +1,11 @@
 Collection of issues we faced and external pages/links that actually helped resolve them;
 
+## 2021-02
+
+* `image-registry` operator reporting Progressing, while Available and not Degraded, after starting with "EmptyDir" storage, switching to PVC (with `nfs-provisioner`), then deleting and recreating the provisioner Pod. The `cluster` config of `image-registry` ends up with 2 storage types, which it cannot support at this time (tested/verified with 4.6.13).  
+  To edit the config, use: `$ oc edit configs.imageregistry.operator.openshift.io`  
+  => <https://access.redhat.com/solutions/4516391>
+
 ## 2021-01
 
 * 4.6 node reporting `NotReady` after upgrade to 4.6.12, due to CRI-O failing to start up on one worker node (other nodes were fine).
