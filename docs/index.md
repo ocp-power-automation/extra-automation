@@ -15,4 +15,5 @@
 * [Prometheus Queries for monitoring of oc cluster](Prometheus_Queries)
 * [External pages that helped resolve issues that we actually faced](actually-helped)
 * [FAQ on PowerVS deployments](powervs-faq)
+* [Deploying kruize on Openshift on Power](kruize)
 * and more to come!
