@@ -14,6 +14,6 @@
 * [How to manage Node health](Node_Health_Management)
 * [Prometheus Queries for monitoring of oc cluster](Prometheus_Queries)
 * [External pages that helped resolve issues that we actually faced](actually-helped)
-* [FAQ on PowerVS deployments](powervs-faq)
+* [FAQ on PowerVS deployments](https://ocp-power-automation.github.io/ocp-powervm-faq/docs/powervs-faq/)
 * [Deploying kruize on Openshift on Power](kruize)
 * and more to come!
