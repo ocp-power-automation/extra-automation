@@ -2,7 +2,7 @@ Collection of issues we faced and external pages/links that actually helped reso
 
 ## 2021-02
 
-* `image-registry` operator reporting Progressing, while Available and not Degraded, after starting with "EmptyDir" storage, switching to PVC (with `nfs-provisioner`), then deleting and recreating the provisioner Pod. The `cluster` config of `image-registry` ends up with 2 storage types, which it cannot support at this time (tested/verified with 4.6.13).  
+* `image-registry` operator reporting Progressing, while Available and not Degraded, after starting with "EmptyDir" storage, switching to PVC (with `nfs-provisioner`), then deleting and recreating the provisioner Pod. The `cluster` config of `image-registry` ends up with 2 storage types, which it cannot support at this time (tested/verified with 4.6.13 & 4.6.19).  
   To edit the config, use: `$ oc edit configs.imageregistry.operator.openshift.io`  
   => <https://access.redhat.com/solutions/4516391>
 
