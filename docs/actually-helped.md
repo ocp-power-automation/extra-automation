@@ -1,5 +1,17 @@
 Collection of issues we faced and external pages/links that actually helped resolve them;
 
+## 2021-03
+
+* A compute or storage got deleted perhaps by accident or mistake, and now your `terraform.tfstate` is out of sync.
+`terraform refresh` is the first thing to try, as it queries the target IaaS and updates the .tfstate file accordingly.
+If for some reason that doesn't work, use this `terraform state rm` coommand that can delete resources properly in the file.
+First, you run `terraform state list` and find out which module corresponds to the infrastructure resource(s) that are now gone.
+After determining which one(s), you can go ahead and run `terraform state rm` with those, perhaps in quotes, one at a time.
+Once done, `terraform.tfstate` file is back in sync, and other Terraform commands (eg. `refresh`, `apply`, `destroy`) should be able to run happily.  
+ => <https://www.terraform.io/docs/cli/commands/state/rm.html>
+
+##### (2021-02-24 4.7 GA)
+
 ## 2021-02
 
 * `image-registry` operator reporting Progressing, while Available and not Degraded, after starting with "EmptyDir" storage, switching to PVC (with `nfs-provisioner`), then deleting and recreating the provisioner Pod. The `cluster` config of `image-registry` ends up with 2 storage types, which it cannot support at this time (tested/verified with 4.6.13 & 4.6.19).  
