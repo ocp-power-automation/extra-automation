@@ -11,9 +11,10 @@
     * [Pending Pods](h2t-pending-pods)
     * [Resource Exhaustion situation](h2t-resource-exhaustion)
     * [Security Context (SCC) issues](h2t-scc)
+    * [DNS issues](h2t-dns)
 * [How to manage Node health](Node_Health_Management)
 * [Prometheus Queries for monitoring of oc cluster](Prometheus_Queries)
 * [External pages that helped resolve issues that we actually faced](actually-helped)
-* [FAQ on PowerVS deployments](https://ocp-power-automation.github.io/ocp-powervm-faq/docs/powervs-faq/)
 * [Deploying kruize on Openshift on Power](kruize)
+* [FAQ on PowerVS deployments](https://ocp-power-automation.github.io/ocp-powervm-faq/docs/powervs-faq/)
 * and more to come!
