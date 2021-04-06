@@ -1,6 +1,9 @@
 # How to Troubleshoot DNS
 
 Clearly this is a very big topic, and there's no way this page can capture every trouble with DNS.
+Kubernetes has a generic debug guide for checking the basic setup of DNS on a cluster using a ready image `dnsutils`.
+See <https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/>.
+
 This living page is just our place to capture and document what we faced, debugged, understood, the issues and "gotchas," on Power, though many may be architecture agnostic.
 
 ## Use of .nip.io Domain for Your Cluster
