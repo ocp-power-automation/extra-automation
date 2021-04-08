@@ -2,8 +2,8 @@
 
 ## Utility Scripts
 
-* `ocp-upgrade-paths.sh` - lists available OCP upgrade paths
-* `setup_nfs_provisioner.sh` - sets up a NFS share on the system, exports it, installs NFS provisioner pod to support dynamically provision PVs on NFS
+* [`ocp-upgrade-paths.sh`](https://github.com/ocp-power-automation/extra/tree/master/utils/ocp-upgrade-paths.sh) - lists available OCP upgrade paths
+* [`setup_nfs_provisioner.sh`](https://github.com/ocp-power-automation/extra/tree/master/utils/setup_nfs_provisioner.sh) - sets up a NFS share on the system, exports it, installs NFS provisioner pod to support dynamically provision PVs on NFS
 
 ## KnowledgeBase
 
