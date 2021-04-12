@@ -9,13 +9,16 @@ The install steps that [kruize](https://github.com/kruize/kruize/blob/master/doc
 > **_NOTE:_** It is recommended to run the pods that are being monitored by kruize with no requests and limits set (or with very high limits set). This helps kruize to understand what is the real usage and hence can recommend the right set of values.
 
  
-### Steps for deploying kruize on IBM Power Systems  
+### Steps for deploying kruize on IBM Power Systems <br/> 
+ 
 
-**1. Clone the kruize github repository :**
+#### 1. Clone the kruize github repository : 
+
 
 `$ git clone https://github.com/kruize/kruize.git` 
 
 `$ cd kruize`
+
 
 Now make the following changes in **manifests/kruize.yaml_template**
 
@@ -39,7 +42,8 @@ Now make the following changes in **manifests/kruize.yaml_template**
           labels:
 ```
 
-**2. Run the `deploy.sh` script to start deployment :** 
+
+#### 2. Run the `deploy.sh` script to start deployment : 
 
 ```text
 $ ./deploy.sh -c openshift
@@ -89,7 +93,7 @@ If that's the case, you can build your own power(ppc64le) image by using `build.
 But before running `./build.sh` make sure you have docker installed on your system .
 
 
-**3. Once the deployment is complete, create a route in order to access the Kruize API**
+#### 3. Once the deployment is complete, create a route in order to access the Kruize API
 
 ```text
 $ cat route.yaml
@@ -123,16 +127,17 @@ status:
 
 * Run: `oc create -f route.yaml`
 
-**4. Use the API to view recommendations** 
 
-* List recommendations for all applications by doing :
+#### 4. Use the API to view recommendations 
 
-$ curl http://<`host_of_your_cluster`>/recommendations?listApplications 
+_List recommendations for all applications by running the following command :_
+
+`$ curl http://<host_of_your_cluster>/recommendations?listApplications` 
 
 _Example_: 
 
 ```text
-[root@kruize-inf ~]# curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?listApplications
+$ curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?listApplications
 
 [
   {
@@ -205,7 +210,7 @@ _Example_: 
 ```
 > _NOTE:_ This is initial output before adding any load on application, and it shows all applications that are deployed in `openshift-monitoring` namespace because Kruize is also deployed in this namespace.
 
-* List recommendations for single application:
+_List recommendations for single application:_
  
 ```text
 $ curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?application_name=kruize
@@ -227,7 +232,7 @@ $ curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommenda
 ]
 ```
 
-**5. Label the pod to monitor your application:** 
+#### 5. Label the pod to monitor your application: 
 
 Kruize by default monitors `openshift-monitoring` namespace. In order to monitor your application, run the following command:
 ```text
@@ -240,23 +245,23 @@ NS stands for namespace name
 ##### 1. To monitor deployment for an acmeair application:
  
 ```text
-[root@kruize-inf ~]# git clone https://github.ibm.com/powercloud/acmeair.git
+[aar@kruize-inf ~]$ git clone https://github.ibm.com/powercloud/acmeair.git
 
 Cloning into 'acmeair'...
 remote: Enumerating objects: 31, done.
 remote: Total 31 (delta 0), reused 0 (delta 0), pack-reused 31
 Unpacking objects: 100% (31/31), done.
 
-[root@kruize-inf ~]# cd acmeair/
-[root@kruize-inf ~]# git checkout powervs
+[aar@kruize-inf ~]$ cd acmeair/
+[aar@kruize-inf ~]$ git checkout powervs
 
 Branch 'powervs' set up to track remote branch 'powervs' from 'origin'.
 Switched to a new branch 'powervs'
 
-[root@kruize-inf acmeair]# ls
+[aar@kruize-inf acmeair]$ ls
 acmeair.PNG  deploy.sh  openshift-manifest  README.md
 
-[root@kruize-inf acmeair]# ./deploy.sh
+[aar@kruize-inf acmeair]$ ./deploy.sh
 
 Route Host=acmeair.apps.kruize.cp.fyre.ibm.com
 Now using project "acme" on server "https://api.kruize.cp.fyre.ibm.com:6443".
@@ -303,7 +308,7 @@ deployment.apps/acmeair-mainservice created
 service/acmeair-main-service created
 Acme Air Deployment complete. Access the application at acmeair.apps.kruize.cp.fyre.ibm.com/acmeair
 
-[root@kruize-inf acmeair]# oc get pods
+[aar@kruize-inf acmeair]$ oc get pods
 NAME                                       READY   STATUS    RESTARTS   AGE
 acmeair-authservice-55648d8445-4k4r4       1/1     Running   0          57m
 acmeair-booking-db-6ffc689d55-kxs9r        1/1     Running   0          57m
@@ -316,15 +321,15 @@ acmeair-mainservice-7f7ff489d-qhss7       1/1     Running   0   �
 ```
 
 * In order to monitor your application, label the pod as mentioned in Step5:
-```
-[root@kruize-inf acmeair]# oc label pod -n acme acmeair-customer-db-ff6bcc8fc-qzxxp app.kubernetes.io/name=acmeair-customer-db
-```
+```text
+[aar@kruize-inf acmeair]$ oc label pod -n acme acmeair-customer-db-ff6bcc8fc-qzxxp app.kubernetes.io/name=acmeair-customer-db
 pod/acmeair-customer-db-ff6bcc8fc-qzxxp labeled
+```
 
 * List recommendations: 
 
 ```text
-[root@kruize-inf acmeair]# curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?application_name=acmeair-customer-db
+[aar@kruize-inf acmeair]$ curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?application_name=acmeair-customer-db
 
 [
   {
@@ -357,7 +362,7 @@ curl http://acmeair.apps.kruize.cp.fyre.ibm.com:6443/customer/loader/load?numCus
 **To list recommendations for single application:** 
 
 ```text
-[root@kruize-inf acmeair]# curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?application_name=acmeair-customer-db
+[aar@kruize-inf acmeair]$ curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?application_name=acmeair-customer-db
 
 [
   {
@@ -379,7 +384,7 @@ curl http://acmeair.apps.kruize.cp.fyre.ibm.com:6443/customer/loader/load?numCus
 **List of recommendations on all the applications:**  
 
 ```text
-[root@kruize-inf acmeair]# curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?listApplications
+[aar@kruize-inf acmeair]$ curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?listApplications
 
 [
   {
@@ -466,7 +471,7 @@ curl http://acmeair.apps.kruize.cp.fyre.ibm.com:6443/customer/loader/load?numCus
 ##### 2. To monitor **osd** pod in Openshift Container Storage: 
  
 ```text
-[root@kruize-inf ~]# oc get pods -n openshift-storage |grep osd
+[aar@kruize-inf ~]$ oc get pods -n openshift-storage |grep osd
 
 NAME                                                              READY   STATUS      RESTARTS   AGE
 rook-ceph-osd-0-6499496d58-pwml8                                  1/1     Running     0          12m
@@ -476,8 +481,9 @@ rook-ceph-osd-2-655f579dc7-65c7p                                  1/1     Runnin
 
 - Label the osd pod which you want to monitor: 
 
-```
-[root@kruize-inf ~]# oc label pod rook-ceph-osd-1-5bd4d44b6f-dd6nq -n openshift-storage app.kubernetes.io/name=rook-ceph-osd-1
+```text
+[aar@kruize-inf ~]$ oc label pod rook-ceph-osd-1-5bd4d44b6f-dd6nq -n openshift-storage app.kubernetes.io/name=rook-ceph-osd-1
+pod/rook-ceph-osd-1-5bd4d44b6f-dd6nq labeled
 ```
 
 - View Recommendations: 
@@ -485,7 +491,7 @@ rook-ceph-osd-2-655f579dc7-65c7p                                  1/1     Runnin
 **Before adding load:**  
 
 ```text
-[root@kruize-inf ~]# curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?application_name=rook-ceph-osd-1
+[aar@kruize-inf ~]$ curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?application_name=rook-ceph-osd-1
 
 [
   {
@@ -508,7 +514,7 @@ rook-ceph-osd-2-655f579dc7-65c7p                                  1/1     Runnin
 
 
 ```text
-[root@kruize-inf ~]# curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?application_name=rook-ceph-osd-1
+[aar@kruize-inf ~]$ curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?application_name=rook-ceph-osd-1
 
 [
   {
