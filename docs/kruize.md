@@ -245,23 +245,23 @@ NS stands for namespace name
 ##### 1. To monitor deployment for an acmeair application:
  
 ```text
-[aar@kruize-inf ~]$ git clone https://github.ibm.com/powercloud/acmeair.git
+$ git clone https://github.ibm.com/powercloud/acmeair.git
 
 Cloning into 'acmeair'...
 remote: Enumerating objects: 31, done.
 remote: Total 31 (delta 0), reused 0 (delta 0), pack-reused 31
 Unpacking objects: 100% (31/31), done.
 
-[aar@kruize-inf ~]$ cd acmeair/
-[aar@kruize-inf ~]$ git checkout powervs
+$ cd acmeair/
+$ git checkout powervs
 
 Branch 'powervs' set up to track remote branch 'powervs' from 'origin'.
 Switched to a new branch 'powervs'
 
-[aar@kruize-inf acmeair]$ ls
+$ ls
 acmeair.PNG  deploy.sh  openshift-manifest  README.md
 
-[aar@kruize-inf acmeair]$ ./deploy.sh
+$ ./deploy.sh
 
 Route Host=acmeair.apps.kruize.cp.fyre.ibm.com
 Now using project "acme" on server "https://api.kruize.cp.fyre.ibm.com:6443".
@@ -308,7 +308,7 @@ deployment.apps/acmeair-mainservice created
 service/acmeair-main-service created
 Acme Air Deployment complete. Access the application at acmeair.apps.kruize.cp.fyre.ibm.com/acmeair
 
-[aar@kruize-inf acmeair]$ oc get pods
+$ oc get pods
 NAME                                       READY   STATUS    RESTARTS   AGE
 acmeair-authservice-55648d8445-4k4r4       1/1     Running   0          57m
 acmeair-booking-db-6ffc689d55-kxs9r        1/1     Running   0          57m
@@ -322,14 +322,14 @@ acmeair-mainservice-7f7ff489d-qhss7       1/1     Running   0   �
 
 * In order to monitor your application, label the pod as mentioned in Step5:
 ```text
-[aar@kruize-inf acmeair]$ oc label pod -n acme acmeair-customer-db-ff6bcc8fc-qzxxp app.kubernetes.io/name=acmeair-customer-db
+$ oc label pod -n acme acmeair-customer-db-ff6bcc8fc-qzxxp app.kubernetes.io/name=acmeair-customer-db
 pod/acmeair-customer-db-ff6bcc8fc-qzxxp labeled
 ```
 
 * List recommendations: 
 
 ```text
-[aar@kruize-inf acmeair]$ curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?application_name=acmeair-customer-db
+$ curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?application_name=acmeair-customer-db
 
 [
   {
@@ -362,7 +362,7 @@ curl http://acmeair.apps.kruize.cp.fyre.ibm.com:6443/customer/loader/load?numCus
 **To list recommendations for single application:** 
 
 ```text
-[aar@kruize-inf acmeair]$ curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?application_name=acmeair-customer-db
+$ curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?application_name=acmeair-customer-db
 
 [
   {
@@ -384,7 +384,7 @@ curl http://acmeair.apps.kruize.cp.fyre.ibm.com:6443/customer/loader/load?numCus
 **List of recommendations on all the applications:**  
 
 ```text
-[aar@kruize-inf acmeair]$ curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?listApplications
+$ curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?listApplications
 
 [
   {
@@ -471,7 +471,7 @@ curl http://acmeair.apps.kruize.cp.fyre.ibm.com:6443/customer/loader/load?numCus
 ##### 2. To monitor **osd** pod in Openshift Container Storage: 
  
 ```text
-[aar@kruize-inf ~]$ oc get pods -n openshift-storage |grep osd
+$ oc get pods -n openshift-storage |grep osd
 
 NAME                                                              READY   STATUS      RESTARTS   AGE
 rook-ceph-osd-0-6499496d58-pwml8                                  1/1     Running     0          12m
@@ -482,7 +482,7 @@ rook-ceph-osd-2-655f579dc7-65c7p                                  1/1     Runnin
 - Label the osd pod which you want to monitor: 
 
 ```text
-[aar@kruize-inf ~]$ oc label pod rook-ceph-osd-1-5bd4d44b6f-dd6nq -n openshift-storage app.kubernetes.io/name=rook-ceph-osd-1
+$ oc label pod rook-ceph-osd-1-5bd4d44b6f-dd6nq -n openshift-storage app.kubernetes.io/name=rook-ceph-osd-1
 pod/rook-ceph-osd-1-5bd4d44b6f-dd6nq labeled
 ```
 
@@ -491,7 +491,7 @@ pod/rook-ceph-osd-1-5bd4d44b6f-dd6nq labeled
 **Before adding load:**  
 
 ```text
-[aar@kruize-inf ~]$ curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?application_name=rook-ceph-osd-1
+$ curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?application_name=rook-ceph-osd-1
 
 [
   {
@@ -514,7 +514,7 @@ pod/rook-ceph-osd-1-5bd4d44b6f-dd6nq labeled
 
 
 ```text
-[aar@kruize-inf ~]$ curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?application_name=rook-ceph-osd-1
+$ curl http://kruize-openshift-monitoring.apps.kruize.cp.fyre.ibm.com/recommendations?application_name=rook-ceph-osd-1
 
 [
   {
