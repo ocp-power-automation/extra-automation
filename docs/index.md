@@ -16,6 +16,7 @@
 * [Prometheus Queries for monitoring of oc cluster](Prometheus_Queries)
 * [External pages that helped resolve issues that we actually faced](actually-helped)
 * [Deploying kruize on Openshift on Power](kruize)
+* [Deploying customizable Grafana on Openshift on Power](custom-grafana)
 * [How to network-install OCP 4.x unattended](set-bootlist-during-netinstall)
 * [FAQ on PowerVS deployments](https://ocp-power-automation.github.io/ocp-powervm-faq/docs/powervs-faq/)
 * and more to come!
