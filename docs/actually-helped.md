@@ -1,5 +1,10 @@
 Collection of issues we faced and external pages/links that actually helped resolve them;
 
+## 2021-04
+
+* Customizing KVM RHEL8 image would fail, if you try to do that (`virt-customize`) on an RHEL7 host. This was experienced when following preparatory steps in https://github.com/ocp-power-automation/ocp4-upi-kvm.  
+  => <https://access.redhat.com/solutions/4073061>
+
 ## 2021-03
 
 * A compute or storage got deleted perhaps by accident or mistake, and now your `terraform.tfstate` is out of sync.
