@@ -1,5 +1,13 @@
 Collection of issues we faced and external pages/links that actually helped resolve them;
 
+## 2021-05
+
+* Upgrading a cluster (from 4.7.6 to 4.7.7) hit a snag and one master node remained `SchedulingDisabled`, while all other nodes upgraded fine.
+`machine-config` operator is Degraded, and `oc get clusterversion` stuck at 83%.
+Understanding how OCP upgrade works and how MCO works helps feel comfortable going into a failing cluster node and running commands to nudge MCD to get `machine-config` operator back in a good state, and finish the outstanding upgrade operation.  
+  => <https://guifreelife.com/blog/2021/03/09/Understanding-OpenShift-Over-The-Air-Updates/>  
+  => <https://access.redhat.com/solutions/5598401>
+
 ## 2021-04
 
 * Customizing KVM RHEL8 image would fail, if you try to do that (`virt-customize`) on an RHEL7 host. This was experienced when following preparatory steps in https://github.com/ocp-power-automation/ocp4-upi-kvm.  
