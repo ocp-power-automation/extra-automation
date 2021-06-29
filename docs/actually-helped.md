@@ -1,5 +1,11 @@
 Collection of issues we faced and external pages/links that actually helped resolve them;
 
+## 2021-06
+
+* Namespace (aka Project in OpenShift) stuck in `Terminating` state after an attempt in deleting one.
+`oc get all` shows no resources in the namespace, yet `oc get ns` shows the "deleted" namespace in `Terminating` state.  
+  ==> <https://www.redhat.com/sysadmin/openshift-terminating-state>
+
 ## 2021-05
 
 * Upgrading a cluster (from 4.7.6 to 4.7.7) hit a snag and one master node remained `SchedulingDisabled`, while all other nodes upgraded fine.
