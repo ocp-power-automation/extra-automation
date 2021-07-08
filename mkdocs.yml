@@ -1,4 +1,5 @@
 site_name: openshift-ppc64le
+site_url: http://openshift-ppc64le.readthedocs.io
 theme:
   name: mkdocs
   nav_style: dark
@@ -9,3 +10,6 @@ nav:
   - Contribute: contrib.md
   - External: actually-helped.md
 copyright: © Copyright IBM Corp. 2020, 2021
+plugins:
+  - search
+  - alternate-link
