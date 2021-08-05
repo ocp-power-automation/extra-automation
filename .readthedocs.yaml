@@ -10,7 +10,6 @@ mkdocs:
   configuration: mkdocs.yml
 
 python:
-  version: 3.7
+  version: "3.7"
   install:
-    - method: pip
-      path: git+https://github.com/cmitu/mkdocs-altlink-plugin/
+    - requirements: docs/requirements.txt
