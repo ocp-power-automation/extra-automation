@@ -1,5 +1,16 @@
 Collection of issues we faced and external pages/links that actually helped resolve them;
 
+## 2021-08
+
+* User needed to change `ulimits` on worker nodes so his "heavy" app can run without errors like "Too many open files."
+  With RHCOS, for system configs like `ulimits` to persist, it has to be done with `MachineConfig` which has a rather straightforward way of adding (or replacing) any file to the system.
+  Tweaking the example for `/etc/security/ulimits.conf`, the rest was just executing the commands to convert the input `.bu` file to YAML, then `oc apply` it, and waiting for all (worker) nodes to reboot.  
+  By the way, the `quay.io/coreos/butane` image referenced by [this page](https://coreos.github.io/butane/getting-started/) is x86 only.
+  If you want to execute that step on Power, go get the Linux binary from [here](https://mirror.openshift.com/pub/openshift-v4/clients/butane/latest/).  
+  ==> <https://docs.openshift.com/container-platform/4.8/post_installation_configuration/machine-configuration-tasks.html#machineconfig-modify-journald_post-install-machine-configuration-tasks>  
+
+##### (2021-07-27 4.8 GA)
+
 ## 2021-06
 
 * Namespace (aka Project in OpenShift) stuck in `Terminating` state after an attempt in deleting one.
